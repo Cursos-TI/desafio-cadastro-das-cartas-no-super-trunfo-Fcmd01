@@ -2,7 +2,7 @@
 #include <stdlib.h> // vai emular os comandos do DOS
 #include <locale.h> // usar acentos
 
-void main (){
+int main (){
     //Permite usar acentos
     setlocale (LC_ALL, "");
 
@@ -32,7 +32,7 @@ void main (){
     scanf ("%c", &cidade1);
 
 
-    unsigned long int pop1;
+    unsigned int pop1;
 
     printf("Digite a populacao da Cidade:\n");
     fflush (stdin);
@@ -51,7 +51,7 @@ void main (){
 
 
 
-    unsigned long int pib1;
+    unsigned int pib1;
 
     printf("\nDigite o PIB da Cidade:\n ");
     fflush(stdin);
@@ -96,7 +96,7 @@ void main (){
     scanf ("%c", &cidade2);
 
 
-    unsigned long int pop2;
+    unsigned int pop2;
 
     printf("Digite a populacao da Cidade:\n ");
     fflush (stdin);
@@ -116,7 +116,7 @@ void main (){
 
 
 
-    unsigned long int pib2;
+    unsigned int pib2;
 
     printf("Digite o PIB da Cidade:\n");
     fflush(stdin);
@@ -133,24 +133,55 @@ void main (){
 
 
     // Comparação 
-
-    int comppop = pop1 > pop2 ;
-    printf ("A populção da CARTA1 venceu a CARTA2: %d\n", comppop);
-    printf ("A area da CARTA1 venceu a CARTA2: %d\n", area1 > area2);
-    printf ("A densidade populacional da CARTA1 venceu a CARTA2: %d\n", densidade1 < densidade2);
-    printf ("O pib da CARTA1 venceu a CARTA2: %d\n", pib1 > pib2);
+    
+    if(pop1 > pop2){
+        printf ("A populcao da CARTA1 venceu a CARTA2\n");
+    }
+    else{
+        printf("A populacao da CARTA2 venceu a CARTA1\n");
+        }
+    if(area1 > area2)
+        printf ("A area da CARTA1 venceu a CARTA2\n");
+    else{
+        printf("A area da CARTA2 venceu a CARTA1.\n");
+    }
+    if(densidade1 < densidade2){
+        printf ("A densidade populacional da CARTA1 venceu a CARTA2\n");
+    }
+    else{
+        printf("A densidade populacional da CARTA2 venceu a CARTA1\n");
+    }
+    if(pib1 > pib2){
+        printf ("O pib da CARTA1 venceu a CARTA2\n");
+    }
+    else{
+        printf("O pib da CARTA2 venceu a CARTA1\n");
+    }
     
     float pibpercap1 = pib1 / pop1 ; 
     float pibpercap2 = pib2 / pop2 ;
-    printf ("O pib per capita da CARTA1 venceu a CARTA2: %f\n", pibpercap1 > pibpercap2);
-    printf ("Os pontos turisticos da CARTA1 venceu a CARTA2: %d\n", pontost1 > pontost2);
+    
+    if(pibpercap1 > pibpercap2){
+        printf ("O pib per capita da CARTA1 venceu a CARTA2\n");
+    }
+    else{
+        printf("O pib per capita da CARTA2 venceu a CARTA1\n");
+    }
+    if(pontost1 > pontost2){
+        printf ("Os pontos turisticos da CARTA1 venceu a CARTA2\n");
+    }
+    else{
+        printf("Os pontos turisticos da CARTA2 venceu a CARTA1\n");
+    }
 
 
     //Resultado
-    int resultado = (pop1 + area1 - densidade1 + pib1 + pibpercap1 + pontost1) > (pop2 + area2 - densidade2 + pib2 + pibpercap2 + pontost2);
+    if((pop1 + area1 - densidade1 + pib1 + pibpercap1 + pontost1) > (pop2 + area2 - densidade2 + pib2 + pibpercap2 + pontost2)){
+        printf("A CARTA1 venceu a CARTA2\n");
 
-
-    printf ("A CARTA 1 VENCEU A CARTA 2:%d \n", resultado);
-
+    }
+    else{
+        printf ("A CARTA 1 VENCEU A CARTA 2\n");
+}
 
 }
